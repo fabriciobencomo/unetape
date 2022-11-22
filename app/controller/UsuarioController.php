@@ -8,8 +8,23 @@ use model\User;
 class UserController extends Controller 
 {
     public function create(){
-        $post = $_POST;
-            
+        $postUser = $_POST["usuario"];
+
+        $columns = "epa";
+        $values = "hola";
+        
+        $user = new User();
+
+        $errores = $user->validar($postUser);
+
+        if(empty($errores)){
+            if($_REQUEST["method"] == "POST"){
+                $user->insert($columns, $values);
+                return header("location: ");
+            }
+        }else{
+            header("location: ");
+        }
 
     }
 

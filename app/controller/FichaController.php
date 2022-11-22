@@ -3,12 +3,14 @@
 namespace controller;
 
 use core\Controller;
+use model\EStadoCivil;
 
 class FichaController extends Controller 
 {
     public function datosPersonales(){
         $title = "UNETALPET | Datos Personales";
-        $this->print("datosPersonales", compact("title"));
+        $estados = EStadoCivil::select_all(); 
+        $this->print("datosPersonales", compact(["title","estados"]));
     }
 
     public function formacionAcademica(){

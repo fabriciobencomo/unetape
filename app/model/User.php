@@ -6,9 +6,9 @@ use core\database\Model;
 
 class User extends Model
 {
-    public function insert()
+    public function insert($columns, $values)
     {
-        $sql = "INSERT INTO table_name(field1, field2, field3) VALUES('value1', 'value2', 'value3');";
+        $sql = "INSERT INTO tbl_usuarios($columns) VALUES($values);";
         return $this->query($sql)->result();
     }
 
@@ -39,6 +39,7 @@ class User extends Model
     public function validar($args = [])
     {
         $erreres = [];
+
         if(!$args["email"]){
             $erreres["email"] = "El email es obligatorio"; 
         }
@@ -52,13 +53,26 @@ class User extends Model
             $erreres["apellidos"] = "Los apellidos son obligatorios"; 
         }
         if(!$args["fecha_nacimiento"]){
-            $erreres["email"] = "La Fecha de Nacimiento es obligatoria"; 
+            $erreres["fecha_nacimiento"] = "La Fecha de Nacimiento es obligatoria"; 
         }
-        if(!$args["email"]){
-            $erreres["email"] = "El email es obligatorio"; 
+        if(!$args["foto_perfil"]){
+            $erreres["foto_perfil"] = "La Foto Perfil es obligatoria"; 
         }
-        if(!$args["email"]){
-            $erreres["email"] = "El email es obligatorio"; 
+        if(!$args["num_hijos"]){
+            $erreres["num_hijos"] = "El Numero de Hijos es obligatorio"; 
         }
+        if(!$args["sexo"]){
+            $erreres["sexo"] = "El Sexo es obligatorio"; 
+        }
+
+        if(!$args["id_estado"]){
+            $erreres["id_estado"] = "El Estado es obligatorio"; 
+        }
+
+        if(!$args["id_estado_civil"]){
+            $erreres["id_estado_civil"] = "El Estado Civil es Obligatorio"; 
+        }
+        
+        return $erreres;
     }
 }
