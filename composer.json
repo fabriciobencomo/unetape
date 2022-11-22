@@ -1,0 +1,28 @@
+{
+    "name": "mini-core/mini-core",
+    "description": "Mini Core, es un Mini FrameWork",
+    "type": "project",
+    "license": "free",
+    "authors": [
+        {
+            "name": "Freddy Chirinos",
+            "email": "flchirinosv@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "core\\": "core/",
+            "controller\\": "app/controller/",
+            "model\\": "app/model/"
+        },
+        "classmap": [
+        ],
+        "files": [
+            "core/autoload.php",
+            "config/autoload.php",
+            "app/autoload.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
